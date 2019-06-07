@@ -7,10 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class RandomAPIService {
 
-  API_URL =  'https://randomuser.me/api/?results=100&nat=br';
+  API_URL =  'https://randomuser.me/api/';
+  API_ARG_USERS = '?results=100&nat=br';
   constructor( private _httpClient: HttpClient ) { }
 
   getAllUsers(){
+    return /*'hola'; */this._httpClient.get(`${this.API_URL}${this.API_ARG_USERS}`);
+  }
+  getUsers(){
     return /*'hola'; */this._httpClient.get(`${this.API_URL}`);
   }
 }
@@ -30,7 +34,6 @@ interface Namec {
 interface Location {
   city: string;
   state: string;
-  
 }
 
 

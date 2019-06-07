@@ -14,11 +14,11 @@ export class LeftMenuComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log("Atendidos")
+    //console.log("Atendidos")
   }
 
   getUrl(url: string){
-    console.log(this.router.url);
+   // console.log(this.router.url);
     return (this.router.url == url);
   }
 

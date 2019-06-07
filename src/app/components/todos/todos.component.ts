@@ -18,7 +18,7 @@ export class TodosComponent implements OnInit {
   ) { 
     this._randomAPIService.getAllUsers().subscribe((data:  any) => {
       this.candidatos = data.results;
-      console.log(this.candidatos);
+     // console.log(this.candidatos);
     },
     (error) =>{
       console.log('Errors: ', error)
@@ -26,7 +26,7 @@ export class TodosComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log("Todos")
+   // console.log("Todos")
   }
 
 }
