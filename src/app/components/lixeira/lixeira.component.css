@@ -1,0 +1,48 @@
+/* internal  Shadow */
+.interna-sw {
+  -webkit-box-shadow: inset 3px 12px 31px -19px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: inset 3px 12px 31px -19px rgba(0, 0, 0, 0.75);
+  box-shadow: inset 3px 12px 31px -19px rgba(0, 0, 0, 0.75);
+  padding-top: 60px;
+  padding-left: 59px;
+  padding-right: 59px;
+  padding-bottom: 60px;
+  position: fixed;
+}
+.table-cand {
+  padding-left: 0px;
+  padding-top: 0px;
+  border: 2px;
+  border-radius: 5px;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 480px;
+}
+.extern-sw {
+  -webkit-box-shadow: 0px 2px 11px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 11px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 11px -1px rgba(0, 0, 0, 0.75);
+}
+#candidatos-tab {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+  size: 40px;
+  width: 100%;
+}
+#candidatos-tab td,
+#candidatos-tab th {
+  border-bottom: 2px  solid #ddd;
+  padding: 18px;
+}
+#candidatos-tab tr:hover {
+  background-color: #ddd;
+}
+#candidatos-tab th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}

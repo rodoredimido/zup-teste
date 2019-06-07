@@ -1,0 +1,15 @@
+// metodos
+
+// realiza shadow da forma interna
+.shadow-conf-inset(@with: 3px, @heigh: 12px, @radshw: 31px, @radpropg: -19px ) {
+    -webkit-box-shadow: inset @with @heigh @radshw @radpropg rgba(0,0,0,0.75);
+    -moz-box-shadow: inset @with @heigh @radshw @radpropg rgba(0,0,0,0.75);
+    box-shadow: inset @with @heigh @radshw @radpropg rgba(0,0,0,0.75);
+}
+
+// realiza shadow de forma externa
+.shadow-conf(@with: 3px, @heigh: 12px, @radshw: 31px, @radpropg: -19px ) {
+    -webkit-box-shadow:  @with @heigh @radshw @radpropg rgba(0,0,0,0.75);
+    -moz-box-shadow:  @with @heigh @radshw @radpropg rgba(0,0,0,0.75);
+    box-shadow: @with @heigh @radshw @radpropg rgba(0,0,0,0.75);
+}

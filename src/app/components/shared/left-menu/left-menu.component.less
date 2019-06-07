@@ -1,0 +1,77 @@
+
+// .text-center {
+//     text-align: start;
+// }
+
+// .text-center::before{
+//     content: "- ";
+// }
+
+
+
+// #menu ul {
+//     list-style-type: none;
+   
+    
+//     font-family: Arial, sans-serif;
+//     font-size: 11pt;
+// }
+
+// #menu ul li {
+//     background-color: #666;
+// }
+
+// #menu ul li a {
+//     color: #ccc;
+//     text-decoration: none;
+//     text-transform: uppercase;
+//     display: block;
+//     padding: 10px 10px 10px 20px;
+// }
+
+// #menu ul li a:hover {
+//     background: #fff;
+//     border-left: 10px solid #333;
+//     color: rgb(0, 230, 0);
+// }
+
+@import "./variavle.less";
+
+
+
+
+.vertical-menu {
+    width: auto; /* Set a width if you like */
+  }
+  
+  .vertical-menu a {
+    //background-color: rgb(240, 240, 240); /* Grey background color */
+    color: rgb(138, 138, 138); /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    font-family: @fontfamily;
+    font-weight: @fontweight;
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+    box-shadow: #4CAF50;
+  }
+  
+  .vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+  }
+
+  .vertical-menu li:hover {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+  }
+
+  .vertical-menu .n-select {
+   color: #c6d511;;
+   font-weight: @fontweightActive;
+  }
+  
+  

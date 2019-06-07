@@ -1,0 +1,35 @@
+.vertical-menu {
+  width: auto;
+  /* Set a width if you like */
+}
+.vertical-menu a {
+  color: #8a8a8a;
+  /* Black text color */
+  display: block;
+  /* Make the links appear below each other */
+  padding: 12px;
+  /* Add some padding */
+  font-family: sans-serif;
+  font-weight: 200;
+  text-decoration: none;
+  /* Remove underline from links */
+}
+.vertical-menu a:hover {
+  background-color: #ccc;
+  /* Dark grey background on mouse-over */
+  box-shadow: #4CAF50;
+}
+.vertical-menu a.active {
+  background-color: #4CAF50;
+  /* Add a green color to the "active/current" link */
+  color: white;
+}
+.vertical-menu li:hover {
+  background-color: #4CAF50;
+  /* Add a green color to the "active/current" link */
+  color: white;
+}
+.vertical-menu .n-select {
+  color: #c6d511;
+  font-weight: bold;
+}

@@ -1,0 +1,25 @@
+<div class="container interna-sw">
+    <div class="table-cand extern-sw" style="border-radius: 32;">
+        <table id="candidatos-tab" class="responsive-table ">
+
+            <tbody>
+                <tr *ngFor="let candidato of candidatos">
+                    <td style="padding-left: 20px;"><img [src]="candidato.picture.thumbnail" class="imgRedonda" width="40px" alt=""></td>
+                    <td> {{candidato.name.first | titlecase}} </td>
+                    <td> {{candidato.email}} </td>
+                    <td> {{candidato.phone}} </td>
+                    <!-- <td> {{ candidato.location.city + '-' + candidato.location.state }} </td> -->
+                    <td> {{ candidato.location.city | titlecase }}-{{candidato.location.state | stateBrasil}} </td>
+                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
+                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
+                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
+
+                </tr>
+
+
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
