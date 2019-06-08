@@ -1,45 +1,47 @@
-<nav class="navbar navbar-expand-md navbar-dark nabheader">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<div *ngIf="url != '/candidato'">
+    <nav class="navbar navbar-expand-md navbar-dark nabheader">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="container-fluid row">
-        <!-- <div class="col-sm-2"> -->
-        <!-- </div> -->
-        <div class="collapse navbar-collapse " id="collapsibleNavbar">
+        <div class="container-fluid row">
+            <!-- <div class="col-sm-2"> -->
+            <!-- </div> -->
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
 
-            <div class="col-sm-2">
-                <img src="../../../../assets/img/logo-zup.svg" alt="logo-zup" width="75px" style="float: left">
-            </div>
-            <div class="col-sm-8">
-
-
-                <div class="with-icon">
-                    <input class="form-control  input-pretty" type="search" placeholder="Search" aria-label="Search">
-                    <span class="oi" data-glyph="magnifying-glass" title="magnifying-glass" aria-hidden="true"></span>
+                <div class="col-sm-2">
+                    <img src="../../../../assets/img/logo-zup.svg" alt="logo-zup" width="75px" style="float: left">
                 </div>
+                <div class="col-sm-8">
 
-                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <div class="with-icon">
+                        <input (input)="getUser(data.value.toString())" class="form-control  input-pretty" type="search" placeholder="Search" aria-label="Search" #data>
+                        <span class="oi" data-glyph="magnifying-glass" title="magnifying-glass" aria-hidden="true"></span>
+                    </div>
+
+                    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control  input-pretty" type="search" placeholder="Search" aria-label="Search">
                 </form>
             </div> -->
 
-            </div>
-            <div class="col-sm-2">
-                <!-- {{candidato.picture.medium}} -->
-                <div class="icon-user ">
-                    <!-- <i class="fa fa-2x fa-user-circle"></i> -->
-                    <img [src]="imageUser" class="imgRedonda" width="40px" alt="" srcset="">
                 </div>
+                <div class="col-sm-2">
+                    <!-- {{candidato.picture.medium}} -->
+                    <div class="icon-user ">
+                        <!-- <i class="fa fa-2x fa-user-circle"></i> -->
+                        <img [src]="imageUser" class="imgRedonda" width="40px" alt="" srcset="">
+                    </div>
+                </div>
+
+
+
             </div>
-
-
 
         </div>
 
-    </div>
 
-
-</nav>
+    </nav>
+</div>

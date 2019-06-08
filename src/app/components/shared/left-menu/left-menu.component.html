@@ -29,19 +29,22 @@
 </div> -->
 
 <!-- A vertical navbar -->
-<nav class="navbar">
+<div *ngIf="url != '/candidato'">
+    <nav class="navbar">
 
-    <!-- Links -->
-    <ul class="navbar-nav vertical-menu">
-        <li class="nav-item">
-            <a [class]="(getUrl('/todos')) ? 'nav-link n-select':'nav-link'" [routerLink]="['todos']"> <span class="oi" data-glyph="list" title="list" aria-hidden="true"></span> Todos</a>
-        </li>
-        <li class="nav-item">
-            <a [class]="(getUrl('/atendidos')) ? 'nav-link n-select':'nav-link'" [routerLink]="['atendidos']"><span class="oi" data-glyph="check" title="check" aria-hidden="true"></span> Atendidos</a>
-        </li>
-        <li class="nav-item">
-            <a [class]="(getUrl('/lixeira')) ? 'nav-link n-select':'nav-link'" [routerLink]="['lixeira']"><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span> Lixeira</a>
-        </li>
-    </ul>
+        <!-- Links -->
+        <ul class="navbar-nav vertical-menu">
+            <li class="nav-item">
+                <a [class]="(getUrl('/todos')) ? 'nav-link n-select':'nav-link'" [routerLink]="['todos']">&nbsp;&nbsp;&nbsp;&nbsp; <span class="oi" data-glyph="list" title="list" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp; Todos</a>
+            </li>
+            <li class="nav-item">
+                <a [class]="(getUrl('/atendidos')) ? 'nav-link n-select':'nav-link'" [routerLink]="['atendidos']">&nbsp;&nbsp;&nbsp;&nbsp;<span class="oi" data-glyph="check" title="check" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp; Atendidos</a>
+            </li>
+            <li class="nav-item">
+                <a [class]="(getUrl('/lixeira')) ? 'nav-link n-select':'nav-link'" [routerLink]="['lixeira']">&nbsp;&nbsp;&nbsp;&nbsp;<span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;&nbsp; Lixeira</a>
+            </li>
+        </ul>
 
-</nav>
+    </nav>
+
+</div>

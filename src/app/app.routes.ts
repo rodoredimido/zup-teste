@@ -7,6 +7,7 @@ import { AtendidosComponent } from './components/atendidos/atendidos.component';
 import { LixeiraComponent } from './components/lixeira/lixeira.component';
 import { CandidatoComponent } from './components/candidato/candidato.component';
 
+
 const APP_ROUTES: Routes = [
     { path: 'todos', component: TodosComponent },
     { path: 'atendidos', component: AtendidosComponent },

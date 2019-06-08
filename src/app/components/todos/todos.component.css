@@ -50,3 +50,6 @@
   border-radius: 150px;
   float: right;
 }
+.my-pagination /deep/ .ngx-pagination .current {
+  border-radius: 150px;
+}

@@ -29,6 +29,8 @@ import { CandidatoComponent } from './components/candidato/candidato.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StateBrasilPipe } from './pipes/state-brasil.pipe';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,7 @@ import { StateBrasilPipe } from './pipes/state-brasil.pipe';
   imports: [
     HttpClientModule,
     BrowserModule,
+    NgxPaginationModule,
     APP_ROUTING
   ],
   providers: [],

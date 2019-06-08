@@ -14,17 +14,7 @@
   text-decoration: none;
   /* Remove underline from links */
 }
-.vertical-menu a:hover {
-  background-color: #ccc;
-  /* Dark grey background on mouse-over */
-  box-shadow: #4CAF50;
-}
 .vertical-menu a.active {
-  background-color: #4CAF50;
-  /* Add a green color to the "active/current" link */
-  color: white;
-}
-.vertical-menu li:hover {
   background-color: #4CAF50;
   /* Add a green color to the "active/current" link */
   color: white;

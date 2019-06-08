@@ -3,23 +3,22 @@
         <table id="candidatos-tab" class="responsive-table ">
 
             <tbody>
-                <tr *ngFor="let candidato of candidatos">
-                    <td style="padding-left: 20px;"><img [src]="candidato.picture.thumbnail" class="imgRedonda" width="40px" alt=""></td>
+                <tr *ngFor="let candidato of candidatos | paginate: config">
+                    <td style="padding-left: 20px;"><img [src]="candidato.picture.thumbnail" class="imgRedonda" width="40px" [alt]="candidato.name.first"></td>
                     <td> {{candidato.name.first | titlecase}} </td>
                     <td> {{candidato.email}} </td>
                     <td> {{candidato.phone}} </td>
                     <!-- <td> {{ candidato.location.city + '-' + candidato.location.state }} </td> -->
-                    <td> {{ candidato.location.city | titlecase }}-{{candidato.location.state | stateBrasil}} </td>
+                    <td> {{ candidato.location.city | titlecase }}-{{candidato.location.state | stateBrasil}}
+                    </td>
                     <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
                     <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
                     <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
 
                 </tr>
-
-
-
-
             </tbody>
         </table>
+        <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+            [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" class="ngx-pagination" (pageChange)="pageChanged($event)"></pagination-controls>
     </div>
 </div>

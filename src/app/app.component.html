@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container-12">
     <!-- Barra superior -->
-    <app-nabvar></app-nabvar>
+    <app-nabvar [url]='getRoute()'></app-nabvar>
     <div class="row">
         <div class="col-md-2">
             <!-- Menu no lateral izquerdo -->
-            <app-left-menu class="menu-v"></app-left-menu>
+            <app-left-menu [url]='getRoute()' class="menu-v"></app-left-menu>
         </div>
 
         <div class="col-md-10">

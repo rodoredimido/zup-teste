@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -9,8 +9,12 @@ import { Router } from '@angular/router';
 })
 export class LeftMenuComponent implements OnInit {
 
+
+  @Input() url: string;
+
   constructor( private router: Router ) {
-    console.log(this.router.url);
+   // console.log(this.router.url);
+   
    }
 
   ngOnInit() {
