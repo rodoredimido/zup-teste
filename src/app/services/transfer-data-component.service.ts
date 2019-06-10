@@ -13,7 +13,7 @@ export class TransferDataComponentService {
   // Cadidatos list
   candidatos: Candidato[] = [];
 
-  // current list 
+  // current list
   currentList: Candidato[] = [];
 
   // Atendidos list
@@ -28,35 +28,37 @@ export class TransferDataComponentService {
   // lixeira list
   currentListlixeira: Candidato[] = [];
 
-  url: string = '';
+  url = '';
+  urlNav = '';
 
-  //socket Internal
+  // socket Internal
    onGetData: EventEmitter<Candidato[]>  = new EventEmitter();
    onGetDataLixira: EventEmitter<Candidato[]>  = new EventEmitter();
-   onGetDataAttend: EventEmitter<Candidato[]>  = new EventEmitter(); 
+   onGetDataAttend: EventEmitter<Candidato[]>  = new EventEmitter();
+   onGetDataUrl: EventEmitter<string>  = new EventEmitter();
 
    constructor() { }
   // Load Candidatos from  app.component end generate callback
-  setCandidatos( data: Candidato[]){
+  setCandidatos( data: Candidato[]) {
     this.candidatos = data;
     this.onGetData.emit(data);
   }
 
   // get all candidatos loading after
-  getCandidatos(): Candidato[]{
+  getCandidatos(): Candidato[] {
     return this.candidatos;
   }
 
   // Set Current List to variable
-  setCurrentList(data: Candidato[]){
+  setCurrentList(data: Candidato[]) {
     this.currentList = data;
   }
 
   // Find candidato fron characters
-  findCand( data: string ): Candidato[]{
+  findCand( data: string ): Candidato[] {
 
     let lCand: Candidato[];
-    if(data.length > 0){
+    if (data.length > 0) {
 
         lCand = this.candidatos.filter(item => {
         console.log(item.name.first);
@@ -76,10 +78,10 @@ export class TransferDataComponentService {
   }
 
   // buscar candidatos desde lixeira
-  findCandLixeira( data: string ): Candidato[]{
+  findCandLixeira( data: string ): Candidato[] {
 
     let lCand: Candidato[];
-    if(data.length > 0){
+    if (data.length > 0) {
 
         lCand = this.lixeiraList.filter(item => {
         console.log(item.name.first);
@@ -99,10 +101,10 @@ export class TransferDataComponentService {
   }
 
    // buscar candidatos desde lixeira
-   findCandAttend( data: string ): Candidato[]{
+   findCandAttend( data: string ): Candidato[] {
 
     let lCand: Candidato[];
-    if(data.length > 0){
+    if (data.length > 0) {
 
         lCand = this.atendidosList.filter(item => {
         console.log(item.name.first);
@@ -124,8 +126,8 @@ export class TransferDataComponentService {
   findCandFromLogin( uuid: string ): Candidato {
 
     let cand: Candidato[];
-  
-    if(uuid.length > 0){
+
+    if (uuid.length > 0) {
       console.log(uuid);
       cand = this.candidatos.filter(item =>  {
         return item.login.uuid === uuid;
@@ -137,90 +139,99 @@ export class TransferDataComponentService {
 
   // adquirir listado de lixeira
 
-  getLixeiraList(){
+  getLixeiraList() {
     return this.lixeiraList;
   }
 
   // Adquirir listado de Atendidos
-  getAtendidosList(){
+  getAtendidosList() {
     return this.atendidosList;
   }
 
   // pasar de todos para Lixeira
-  setTodosToLixeira(data: Candidato){
+  setTodosToLixeira(data: Candidato) {
     this.lixeiraList.push(data);
     this.onGetDataLixira.emit( this.lixeiraList );
-    this.candidatos = this.candidatos.filter((item, idx  )=> {
-       
+    this.candidatos = this.candidatos.filter((item, idx  ) => {
+
       return  item !==  data;
     });
     this.onGetData.emit( this.candidatos );
   }
-  
-  //pasar de lixeira para todos
-  setLixeiraToTodos(data: Candidato){
+
+  // pasar de lixeira para todos
+  setLixeiraToTodos(data: Candidato) {
     this.candidatos.push(data);
     this.onGetData.emit( this.candidatos );
-    this.lixeiraList = this.lixeiraList.filter((item, idx  )=> {
-       
+    this.lixeiraList = this.lixeiraList.filter((item, idx  ) => {
+
       return  item !==  data;
     });
     this.onGetDataLixira.emit( this.lixeiraList );
   }
 
-  setLixeiraToAtend(data: Candidato){
+  setLixeiraToAtend(data: Candidato) {
     this.atendidosList.push(data);
     this.onGetData.emit( this.atendidosList );
-    this.lixeiraList = this.lixeiraList.filter((item, idx  )=> {
-       
+    this.lixeiraList = this.lixeiraList.filter((item, idx  ) => {
+
       return  item !==  data;
     });
     this.onGetDataLixira.emit( this.lixeiraList );
   }
-  
+
   // pasar todos para atendimiento
-  async setTodosToAtend(data: Candidato){
-    console.log(data)
-    this.atendidosList.push(data)
-    this.candidatos =  this.candidatos.filter((item, idx  )=> {
-      
-      return  item !=  data;
+  async setTodosToAtend(data: Candidato) {
+    console.log(data);
+    this.atendidosList.push(data);
+    this.candidatos =  this.candidatos.filter((item, idx  ) => {
+
+      return  item !==  data;
     });
     this.onGetDataAttend.emit( this.atendidosList );
     this.onGetData.emit( this.candidatos );
-    
+
   }
-  
-  //pasar atendimiento  para todos
-  setAtendToTodos(data: Candidato){
-    this.candidatos.push(data)
+
+  // pasar atendimiento  para todos
+  setAtendToTodos(data: Candidato) {
+    this.candidatos.push(data);
     this.onGetData.emit( this.candidatos );
-    this.atendidosList = this.atendidosList.filter((item, idx  )=> {
+    this.atendidosList = this.atendidosList.filter((item, idx  ) => {
       return  item !==  data;
     });
     this.onGetDataAttend.emit( this.atendidosList );
 
   }
 
-  setAtendToLixo(data: Candidato){
-    this.lixeiraList.push(data)
+  setAtendToLixo(data: Candidato) {
+    this.lixeiraList.push(data);
     this.onGetData.emit( this.lixeiraList );
-    this.atendidosList = this.atendidosList.filter((item, idx  )=> {
+    this.atendidosList = this.atendidosList.filter((item, idx  ) => {
       return  item !==  data;
     });
     this.onGetDataAttend.emit( this.atendidosList );
 
   }
 
-  setUrl( url: string ){
+  setUrl( url: string ) {
     this.url =  url;
   }
 
-  getUrl(){
+  getUrl() {
     return this.url;
   }
 
- 
+  setUrlNav(data: string) {
+    this.onGetDataUrl.emit(data);
+    this.urlNav = data;
+  }
+
+  getUrlNav() {
+    return this.urlNav;
+  }
+
+
 
 
 

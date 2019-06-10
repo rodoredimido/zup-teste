@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
+
 import { TransferDataComponentService } from './transfer-data-component.service';
 
 describe('TransferDataComponentService', () => {
@@ -7,6 +8,7 @@ describe('TransferDataComponentService', () => {
 
   it('should be created', () => {
     const service: TransferDataComponentService = TestBed.get(TransferDataComponentService);
-    expect(service).toBeTruthy();
+    service.url = 'candidato';
+    expect(service.url).toEqual('candidato');
   });
 });

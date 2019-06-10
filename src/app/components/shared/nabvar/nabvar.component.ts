@@ -12,16 +12,16 @@ import { Router } from '@angular/router';
 export class NabvarComponent implements OnInit {
 
   candidato: Candidato;
-  imageUser: string= '';
+  imageUser = '';
 
-  @Input() url: string;
+  @Input() url = '';
 
   constructor(
     private _randomAPIService: RandomAPIService,
     private _transferData: TransferDataComponentService,
     private router: Router
-) { 
-  
+) {
+
 }
 ngOnInit() {
   this._randomAPIService.getUsers().subscribe((data:  any) => {
@@ -29,27 +29,32 @@ ngOnInit() {
     this.imageUser =  this.candidato.picture.thumbnail;
     console.log(this.candidato);
   },
-  (error) =>{
-    console.log('Errors: ', error)
-  });  
+  (error) => {
+    console.log('Errors: ', error);
+  });
+
+  this._transferData.onGetDataUrl.subscribe(url => {
+    this.url = url;
+    console.log(this.url);
+  });
   }
-  getUser(cand: string){
+  getUser(cand: string) {
     console.log(cand);
-    console.log(this.router.url)
+    console.log(this.router.url);
     switch (this.router.url) {
-      case '/todos':        
+      case '/todos':
         this._transferData.findCand(cand);
         break;
-      
+
       case '/atendidos':
-          this._transferData.findCandAttend(cand);      
+          this._transferData.findCandAttend(cand);
           break;
 
       case '/lixeira':
           this._transferData.findCandLixeira(cand);
           break;
-    
-     
+
+
     }
   }
 

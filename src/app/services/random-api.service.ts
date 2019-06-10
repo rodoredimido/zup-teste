@@ -9,12 +9,12 @@ export class RandomAPIService {
 
   API_URL =  'https://randomuser.me/api/';
   API_ARG_USERS = '?results=100&nat=br';
-  constructor( private _httpClient: HttpClient ) { }
+  constructor( private _httpClient?: HttpClient ) { }
 
-  getAllUsers(){
+  getAllUsers() {
     return /*'hola'; */this._httpClient.get(`${this.API_URL}${this.API_ARG_USERS}`);
   }
-  getUsers(){
+  getUsers() {
     return /*'hola'; */this._httpClient.get(`${this.API_URL}`);
   }
 }
@@ -58,7 +58,7 @@ interface Dob {
 }
 
 
-export interface Candidato{
+export interface Candidato {
   id?: Id;
   dob?: Dob;
   picture?: Picture;

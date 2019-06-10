@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 import { CandidatoService } from '../../states/model/proxy.service';
 import { EstadoService } from '../../states/history/proxy.service';
-//import { InitialState } from '../../states/history/estado.store';
+// import { InitialState } from '../../states/history/estado.store';
 
 
 
@@ -23,17 +23,17 @@ export class LixeiraComponent implements OnInit {
   lixeiraList: Candidato[];
   name$: Observable<string>;
 
-  config: any={
+  config: any = {
     id: 'info',
     itemsPerPage: 5,
     currentPage: 1,
     totalItems: 0
-  }
-  
-  public maxSize: number = 7;
-  public directionLinks: boolean = true;
-  public autoHide: boolean = false;
-  public responsive: boolean = true;
+  };
+
+  public maxSize = 7;
+  public directionLinks = true;
+  public autoHide = false;
+  public responsive = true;
   public labels: any = {
       previousLabel: '<',
       nextLabel: '>',
@@ -47,8 +47,8 @@ export class LixeiraComponent implements OnInit {
                private _candidatoService: CandidatoService ) {
 
                 this.getCandidatos();
-                if(this.lixeiraList){
-                  if(this.lixeiraList.length > 0){
+                if (this.lixeiraList) {
+                  if (this.lixeiraList.length > 0) {
                     console.log(this.lixeiraList);
                     this.configPagining(this.lixeiraList);
                   }
@@ -56,7 +56,7 @@ export class LixeiraComponent implements OnInit {
                 }
 
   ngOnInit() {
-    console.log("lixeira");
+    console.log('lixeira');
     this._transferData.onGetDataLixira.subscribe(candidatos => {
       this.lixeiraList = candidatos;
       if (candidatos.length > 0 ) {
@@ -65,12 +65,12 @@ export class LixeiraComponent implements OnInit {
       }
     });
   }
-  pageChanged(event){
+  pageChanged(event) {
     console.log(event);
     this.config.currentPage = event;
   }
 
-  configPagining(data: Candidato[]){
+  configPagining(data: Candidato[]) {
     // console.log(data);
     console.log(data.length);
      this.config = {
@@ -80,17 +80,17 @@ export class LixeiraComponent implements OnInit {
        totalItems: data.length
      };
    }
-   saveStateCand(data: Candidato){
+   saveStateCand(data: Candidato) {
      this._transferData.setUrl('lixeira');
     this._candidatoService.setName(data);
   }
 
-  
-  setToAttend(data: Candidato){
+
+  setToAttend(data: Candidato) {
     this._transferData.setLixeiraToAtend(data);
   }
 
-  setToTodos(data: Candidato){
+  setToTodos(data: Candidato) {
     this._transferData.setLixeiraToTodos(data);
   }
   async getCandidatos() {

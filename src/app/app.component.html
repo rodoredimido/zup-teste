@@ -1,14 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container-12">
     <!-- Barra superior -->
-    <app-nabvar [url]='getRoute()'></app-nabvar>
+    <app-nabvar></app-nabvar>
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-2">
             <!-- Menu no lateral izquerdo -->
-            <app-left-menu [url]='getRoute()' class="menu-v"></app-left-menu>
+            <app-left-menu class="menu-v"></app-left-menu>
         </div>
 
-        <div class="col-md-10">
+        <div class="col-10">
             <!-- Rotas -->
             <router-outlet class="conteudo-router collapse navbar-collapse"></router-outlet>
         </div>

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 /**
@@ -25,13 +25,18 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // modules library
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-//import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpModule } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StateBrasilPipe } from './pipes/state-brasil.pipe';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
+
+import { CandidatoModule } from '../app/components/candidato/candidato.module';
+
 
 @NgModule({
   declarations: [
@@ -43,14 +48,27 @@ import { DatePipe } from '@angular/common';
     AtendidosComponent,
     LixeiraComponent,
     LeftMenuComponent,
-    //CandidatoComponent,
+    // CandidatoComponent,
     StateBrasilPipe
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+],
   imports: [
     HttpClientModule,
     BrowserModule,
     NgxPaginationModule,
+    // CandidatoModule,
     MDBBootstrapModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => {
+          return new TranslateHttpLoader(http);
+        },
+        deps: [ HttpClient ]
+      }
+    }),
     APP_ROUTING
   ],
   providers: [DatePipe],

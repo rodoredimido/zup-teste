@@ -15,7 +15,7 @@ const APP_ROUTES: Routes = [
     // { path: 'lixeira', loadChildren: './components/lixeira/lixeira.module#LixeiraModule' },
     // { path: 'candidato', component: CandidatoComponent },
      { path: 'candidato', loadChildren: './components/candidato/candidato.module#CandidatoModule' },
-    { path: '**', pathMatch:'full', redirectTo: 'todos'  },
+    { path: '**', pathMatch: 'full', redirectTo: 'todos'  },
 ];
- 
+
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

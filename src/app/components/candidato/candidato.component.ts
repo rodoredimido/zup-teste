@@ -12,7 +12,7 @@ import { CandidatoQuery } from '../../states/model/candidatos.query';
 
 
 
-@Component({ 
+@Component({
   selector: 'app-candidato',
   templateUrl: './candidato.component.html',
   styleUrls: ['./candidato.component.less']
@@ -20,15 +20,15 @@ import { CandidatoQuery } from '../../states/model/candidatos.query';
 export class CandidatoComponent implements OnInit {
 
   candidato: Candidato;
-  
-  photo: string = '';
-  itenSeect: string = 'cu' ;
+
+  photo = '';
+  itenSeect = 'cu' ;
   info: InfoUser = {
-    title:'',
+    title: '',
     value: ''
   };
   candi$: Observable<Candidato>;
-  first: boolean =  true;
+  first =  true;
 
   constructor(
       private _transferData:  TransferDataComponentService,
@@ -36,28 +36,29 @@ export class CandidatoComponent implements OnInit {
       private _datePipe: DatePipe,
       private _candidatoQuery: CandidatoQuery,
       private _router: Router ) {
+        this._transferData.setUrlNav('candidato');
         this._activatedRoute.params.subscribe( (params) =>  {
         //  this.candidato = this._transferData.findCandFromLogin(params['uuid']);
         //  this.photo =  this.candidato.picture.large;
         //  this.info.title = 'Hi, My name is';
         //  this.info.value = `${this.candidato.name.first} ${this.candidato.name.last}`;
-         
+
         });
   }
 
   ngOnInit() {
     this.candi$ = this._candidatoQuery.getName$;
-    this.candi$.subscribe( data =>{
+    this.candi$.subscribe( data => {
       this.candidato = data;
       this.photo =  this.candidato.picture.large;
       this.info.title = 'Hi, My name is';
       this.info.value = `${this.candidato.name.first} ${this.candidato.name.last}`;
-         
+
       console.log(data);
-    })
+    });
   }
 
-  select(event){
+  select(event) {
     console.log(this.candi$);
   this.first = false;
     switch (event) {
@@ -68,47 +69,47 @@ export class CandidatoComponent implements OnInit {
         case 'en':
             this.info.title = 'Hi email address is';
             this.info.value = this.candidato.email;
-        
+
         break;
         case 'ca':
             this.info.title = 'My birthday is';
             this.info.value =  this._datePipe.transform(this.candidato.dob.date, 'dd/MM/yyyy');
-        
+
         break;
         case 'ma':
             this.info.title = 'My address is';
             this.info.value = this.candidato.location.street ;
-        
+
         break;
         case 'ph':
             this.info.title = 'My phone number is';
             this.info.value = this.candidato.phone;
-        
+
         break;
         case 'ke':
             this.info.title = 'My password is';
             this.info.value = this.candidato.login.password;
-        
+
         break;
-    
-     
+
+
     }
     this.itenSeect = event;
     console.log(event);
   }
-  goBack(){
+  goBack() {
     let url = this._transferData.getUrl();
-    if(url == ''){
+    if (url === '') {
         url = 'todos';
     }
     this._router.navigate([url]);
   }
 
-};
+}
 
 
 
 export interface InfoUser {
   title: string;
   value: string;
-};
+}

@@ -1,25 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { forEach } from '@angular/router/src/utils/collection';
 
-@Pipe({
-  name: 'stateBrasil'
-})
-export class StateBrasilPipe implements PipeTransform {
-  
-  
-  transform(value: string): string {
-   
-    let state:  string = STATES_JS_STR[value.toLocaleLowerCase()]
-    if( !state ){
-        state = CAPITAIS_JS_STR[value.toLocaleLowerCase()];
-    }
-
-    return state;
-  }
-
-  
-
-}
 const STATES: any[] = [
   'acre',
   'alagoas',
@@ -48,11 +29,11 @@ const STATES: any[] = [
   'sergipe',
   'Tocantins'
   ];
-  
+
   const STATES_JS_NUM: {[key: number]: string}[] = [
    {0: 'Acre'},
    {1: 'Alagoas'},
-   {2:'Amazonas'},
+   {2: 'Amazonas'},
    {3: 'Bahía'},
    {4: 'Ceará'} ,
    {5: 'Distrito Federal'},
@@ -162,8 +143,8 @@ const STATES: any[] = [
    23 : 'SP',
    24 : 'SE',
    25 : 'TO'
-  }
-  
+  };
+
   const CAPITAIS_JS: any = {
     0: 'Río Branco',
     1: 'Maceió',
@@ -191,8 +172,8 @@ const STATES: any[] = [
     23: 'São Paulo',
     24: 'Aracaju',
     25: 'Palmas'
-  }
-  const STATES_AB: string[]= [
+  };
+  const STATES_AB: string[] = [
      'AC',
      'AL',
      'AM',
@@ -219,7 +200,7 @@ const STATES: any[] = [
      'SP',
      'SE',
      'TO'
-  ];  
+  ];
   const STATES_CAPINTAL: string[] = [
     'Río Branco',
     'Maceió',
@@ -248,3 +229,24 @@ const STATES: any[] = [
     'Aracaju',
     'Palmas'
   ];
+
+
+@Pipe({
+  name: 'stateBrasil'
+})
+export class StateBrasilPipe implements PipeTransform {
+
+
+  transform(value: string): string {
+
+    let state:  string = STATES_JS_STR[value.toLocaleLowerCase()];
+    if ( !state ) {
+        state = CAPITAIS_JS_STR[value.toLocaleLowerCase()];
+    }
+
+    return state;
+  }
+
+
+
+}
