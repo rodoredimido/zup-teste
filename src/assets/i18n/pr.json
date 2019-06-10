@@ -1,3 +1,5 @@
 {
-    'menu-v.todos': 'todos'
+    "todos": "Todos",
+    "atendidos": "Atendidos",
+    "basura": "Lixeira"
 }
