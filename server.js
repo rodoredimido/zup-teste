@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 
 //Ao iniciar uma aplicação utilizando HEROKU proporciona um 
-const nomeApp = process.env.npm_package_name || 'gerenciarCandidatos';
+const nomeApp = 'gerenciarCandidatos';
 // instaciamos app
 const app = express();
 
