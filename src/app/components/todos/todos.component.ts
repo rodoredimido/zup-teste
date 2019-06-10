@@ -54,18 +54,18 @@ export class TodosComponent implements OnInit {
       this.candidatos = candidatos;
       if (candidatos.length > 0 ) {
         this.configPagining(candidatos);
-        console.log(this.candidatos);
+        
       }
     });
   }
   pageChanged(event) {
-    console.log(event);
+  
     this.config.currentPage = event;
   }
 
   configPagining(data: Candidato[]) {
    // console.log(data);
-   console.log(data.length);
+   
     this.config = {
       id: 'info',
       itemsPerPage: 5,

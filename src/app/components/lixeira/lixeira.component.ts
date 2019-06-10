@@ -46,6 +46,7 @@ export class LixeiraComponent implements OnInit {
                private _estadoService: EstadoService,
                private _candidatoService: CandidatoService ) {
 
+                this._transferData.setUrlNav('lixeira');
                 this.getCandidatos();
                 if (this.lixeiraList) {
                   if (this.lixeiraList.length > 0) {
@@ -56,23 +57,23 @@ export class LixeiraComponent implements OnInit {
                 }
 
   ngOnInit() {
-    console.log('lixeira');
+   
     this._transferData.onGetDataLixira.subscribe(candidatos => {
       this.lixeiraList = candidatos;
       if (candidatos.length > 0 ) {
         this.configPagining(candidatos);
-        console.log(this.lixeiraList);
+       
       }
     });
   }
   pageChanged(event) {
-    console.log(event);
+   
     this.config.currentPage = event;
   }
 
   configPagining(data: Candidato[]) {
     // console.log(data);
-    console.log(data.length);
+   
      this.config = {
        id: 'trash',
        itemsPerPage: 5,

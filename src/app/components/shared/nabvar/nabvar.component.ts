@@ -27,7 +27,7 @@ ngOnInit() {
   this._randomAPIService.getUsers().subscribe((data:  any) => {
     this.candidato = data.results[0];
     this.imageUser =  this.candidato.picture.thumbnail;
-    console.log(this.candidato);
+  
   },
   (error) => {
     console.log('Errors: ', error);
@@ -35,7 +35,7 @@ ngOnInit() {
 
   this._transferData.onGetDataUrl.subscribe(url => {
     this.url = url;
-    console.log(this.url);
+    
   });
   }
   getUser(cand: string) {

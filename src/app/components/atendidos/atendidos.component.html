@@ -19,11 +19,19 @@
 
                 </tr>
             </tbody>
-        </table>
-        <div class="pag-position">
-            <pagination-controls [id]=" 'attend' " [maxSize]="maxSize " [directionLinks]="directionLinks " [autoHide]="autoHide " [responsive]="responsive " [previousLabel]="labels.previousLabel " [nextLabel]="labels.nextLabel
-                            " [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel " [screenReaderPageLabel]="labels.screenReaderPageLabel " [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel " class="my-pagination" (pageChange)="pageChanged($event)"></pagination-controls>
+            <tfoot>
+                <tr>
+                    <td colspan="8">
+                        <div class="pag-position">
+                            <pagination-controls [id]=" 'info' " [maxSize]="maxSize " [directionLinks]="directionLinks " [autoHide]="autoHide " [responsive]="responsive " [previousLabel]="labels.previousLabel " [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel "
+                                [screenReaderPageLabel]="labels.screenReaderPageLabel " [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel " class="my-pagination" (pageChange)="pageChanged($event) "></pagination-controls>
 
-        </div>
+                        </div>
+
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
     </div>
 </div>

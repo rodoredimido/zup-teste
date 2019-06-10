@@ -37,13 +37,7 @@ export class CandidatoComponent implements OnInit {
       private _candidatoQuery: CandidatoQuery,
       private _router: Router ) {
         this._transferData.setUrlNav('candidato');
-        this._activatedRoute.params.subscribe( (params) =>  {
-        //  this.candidato = this._transferData.findCandFromLogin(params['uuid']);
-        //  this.photo =  this.candidato.picture.large;
-        //  this.info.title = 'Hi, My name is';
-        //  this.info.value = `${this.candidato.name.first} ${this.candidato.name.last}`;
-
-        });
+       
   }
 
   ngOnInit() {
@@ -51,23 +45,26 @@ export class CandidatoComponent implements OnInit {
     this.candi$.subscribe( data => {
       this.candidato = data;
       this.photo =  this.candidato.picture.large;
-      this.info.title = 'Hi, My name is';
-      this.info.value = `${this.candidato.name.first} ${this.candidato.name.last}`;
+      // this.info.title = 'Hi, My name is';
+      // this.info.value = `${this.candidato.name.first} ${this.candidato.name.last}`;
 
-      console.log(data);
+     
     });
   }
 
   select(event) {
-    console.log(this.candi$);
+  //  console.log(this.candi$);
+  
   this.first = false;
     switch (event) {
+
       case 'co':
-            this.info.title = 'Hi, My name is';
-            this.info.value = `${this.candidato.name.first} ${this.candidato.name.last}`;
+        this.info.title = 'Hi, My name is';
+        this.info.value = `${this.candidato.name.first} ${this.candidato.name.last}`;
+        
         break;
         case 'en':
-            this.info.title = 'Hi email address is';
+            this.info.title = 'Mi email address is';
             this.info.value = this.candidato.email;
 
         break;
@@ -95,7 +92,7 @@ export class CandidatoComponent implements OnInit {
 
     }
     this.itenSeect = event;
-    console.log(event);
+    
   }
   goBack() {
     let url = this._transferData.getUrl();
