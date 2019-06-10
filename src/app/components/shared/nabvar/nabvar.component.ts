@@ -23,7 +23,8 @@ export class NabvarComponent implements OnInit {
 ) { 
   
 }
-ngOnInit() {this._randomAPIService.getUsers().subscribe((data:  any) => {
+ngOnInit() {
+  this._randomAPIService.getUsers().subscribe((data:  any) => {
     this.candidato = data.results[0];
     this.imageUser =  this.candidato.picture.thumbnail;
     console.log(this.candidato);
@@ -34,7 +35,22 @@ ngOnInit() {this._randomAPIService.getUsers().subscribe((data:  any) => {
   }
   getUser(cand: string){
     console.log(cand);
-    this._transferData.findCand(cand);
+    console.log(this.router.url)
+    switch (this.router.url) {
+      case '/todos':        
+        this._transferData.findCand(cand);
+        break;
+      
+      case '/atendidos':
+          this._transferData.findCandAttend(cand);      
+          break;
+
+      case '/lixeira':
+          this._transferData.findCandLixeira(cand);
+          break;
+    
+     
+    }
   }
 
 }

@@ -1,24 +1,39 @@
 <div class="container interna-sw">
     <div class="table-cand extern-sw" style="border-radius: 32;">
-        <table id="candidatos-tab" class="responsive-table ">
+        <table id="candidatos-tab" class="responsive-table">
+
 
             <tbody>
-                <tr *ngFor="let candidato of candidatos | paginate: config">
-                    <td style="padding-left: 20px;"><img [src]="candidato.picture.thumbnail" class="imgRedonda" width="40px" [alt]="candidato.name.first"></td>
-                    <td> {{candidato.name.first | titlecase}} </td>
-                    <td> {{candidato.email}} </td>
-                    <td> {{candidato.phone}} </td>
-                    <!-- <td> {{ candidato.location.city + '-' + candidato.location.state }} </td> -->
-                    <td> {{ candidato.location.city | titlecase }}-{{candidato.location.state | stateBrasil}}
+                <tr *ngFor="let candidato of candidatos  | paginate: config" (mouseenter)="saveStateCand(candidato) ">
+                    <!-- <tr *ngFor="let candidato of candidatos | paginate: config "> -->
+                    <td style="padding-left: 20px; "><img (mouseenter)="saveStateCand(candidato) " [src]="candidato.picture.thumbnail " [routerLink]=" '/candidato' " class="imgRedonda " width="40px " [alt]="candidato.name.first "></td>
+                    <td> <button [routerLink]=" '/candidato' " class="btn btn-circle text-table-name"> {{candidato.name.first | titlecase}} </button> </td>
+                    <td>
+                        <div>{{candidato.email}} </div>
                     </td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
+                    <td>
+                        <div> {{candidato.phone}} </div>
+                    </td>
+                    <!-- <td> {{ candidato.location.city + '-' + candidato.location.state }} </td> -->
+                    <td>
+                        <div> {{ candidato.location.city | titlecase }}-{{candidato.location.state | stateBrasil}}</div>
+                    </td>
+                    <td><button (click)="setToLixo(candidato)" class="btn btn-circle text-table-icone"><span class="oi" data-glyph="trash" title="trash" aria-hidden="true "></span> </button></td>
+                    <td [routerLink]=" '/candidato' "> <button class="btn btn-circle text-table-icone"><span class="oi" data-glyph="list" title="list" aria-hidden="true "></span></button></td>
+                    <td><button (click)="setToAttend(candidato)" class="btn btn-circle text-table-icone"><span class="oi" data-glyph="check" title="check" aria-hidden="true "></span> </button></td>
 
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <div class="pag-position">
+                            <pagination-controls [id]=" 'info' " [maxSize]="maxSize " [directionLinks]="directionLinks " [autoHide]="autoHide " [responsive]="responsive " [previousLabel]="labels.previousLabel " [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel "
+                                [screenReaderPageLabel]="labels.screenReaderPageLabel " [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel " class="my-pagination" (pageChange)="pageChanged($event) "></pagination-controls>
+
+                        </div>
+
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide" [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-            [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" class="ngx-pagination" (pageChange)="pageChanged($event)"></pagination-controls>
     </div>
 </div>

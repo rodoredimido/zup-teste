@@ -34,16 +34,40 @@ interface Namec {
 interface Location {
   city: string;
   state: string;
+  street: string;
+}
+
+interface Id {
+  name: string;
+  value: string;
+}
+
+interface Login {
+  md5: string;
+  password: string;
+  salt: string;
+  sha1: string;
+  sha256: string;
+  username: string;
+  uuid: string;
+}
+
+interface Dob {
+  age: number;
+  date: string;
 }
 
 
 export interface Candidato{
+  id?: Id;
+  dob?: Dob;
   picture?: Picture;
-  name: Namec;
+  name?: Namec;
   email: string;
   cell: string;
   phone: string;
-  location: Location;
+  location?: Location;
+  login?: Login;
   att?: boolean;
 }
 

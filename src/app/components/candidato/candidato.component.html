@@ -1,14 +1,48 @@
-<div class="fondo">
+<div class="fondo" onload="select()">
     <div class="fondo_1">
-        <input type="image" src="../../../assets/img/arrow-left.svg" class="btn_return" alt="arrow-left">
+        <input (click)="goBack()" type="image" src="../../../assets/img/arrow-left.svg" class="btn_return" alt="arrow-left">
     </div>
 
-    <!-- <img src="../../../assets/img/c1.svg" style="position: fixed;"> -->
     <div class="card">
-        <img src="../../../assets/img/logo-zup.svg" alt="Avatar" style="width:100%">
+        <div class="img-position">
+            <img [src]="photo" [alt]="candidato.name.first" class="img-border">
+        </div>
+        <div class="fondo_3">
+
+        </div>
         <div class="container">
-            <h4><b>John Doe</b></h4>
-            <p>Architect & Engineer</p>
+            <div class="text-title">
+                <h4><b>{{info.title}}</b></h4>
+
+            </div>
+            <div class="subtitle">
+                <p class="mat-body text-subtitle">{{ (first) ? (info.value | titlecase) : ( itenSeect == 'co' ) ? (info.value | titlecase) :info.value }}</p>
+            </div>
+            <div class="pos-buttons">
+                <div class="row">
+                    <div (mouseenter)="select('co')" [class]=" (first) ? 'col-2 item-select' : ( itenSeect == 'co' ) ? 'col-2 item-select' : 'col-2 item-cand' ">
+                        <span class="fa fa-2x fa-user-o" data-glyph="trash" title="trash" aria-hidden="true"></span>
+                    </div>
+                    <div (mouseenter)="select('en')" [class]=" ( itenSeect == 'en' ) ? 'col-2 item-select' : 'col-2 item-cand' ">
+                        <span class="fa fa-2x fa-envelope-o " data-glyph="trash" title="trash" aria-hidden="true"></span>
+                    </div>
+                    <div (mouseenter)="select('ca')" [class]=" ( itenSeect == 'ca' ) ? 'col-2 item-select' : 'col-2 item-cand' ">
+                        <i class="fa  fa-2x fa-calendar-o "></i>
+                    </div>
+                    <div (mouseenter)="select('ma')" [class]=" ( itenSeect == 'ma' ) ? 'col-2 item-select' : 'col-2 item-cand' ">
+                        <i class="fa  fa-2x fa-map-o "></i>
+                    </div>
+                    <div (mouseenter)="select('ph')" [class]=" ( itenSeect == 'ph' ) ? 'col-2 item-select' : 'col-2 item-cand' ">
+                        <i class="fa  fa-2x fa-volume-control-phone"></i>
+                    </div>
+                    <div (mouseenter)="select('ke')" [class]=" ( itenSeect == 'ke' ) ? 'col-2 item-select' : 'col-2 item-cand' ">
+                        <i class="fa  fa-2x fa-key"></i>
+                    </div>
+
+
+                </div>
+            </div>
+
         </div>
     </div>
 

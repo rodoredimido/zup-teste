@@ -21,6 +21,7 @@ import { AtendidosComponent } from './components/atendidos/atendidos.component';
 import { LixeiraComponent } from './components/lixeira/lixeira.component';
 import { LeftMenuComponent } from './components/shared/left-menu/left-menu.component';
 import { CandidatoComponent } from './components/candidato/candidato.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 // modules library
 
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StateBrasilPipe } from './pipes/state-brasil.pipe';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,16 +43,17 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AtendidosComponent,
     LixeiraComponent,
     LeftMenuComponent,
-    CandidatoComponent,
+    //CandidatoComponent,
     StateBrasilPipe
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     NgxPaginationModule,
+    MDBBootstrapModule.forRoot(),
     APP_ROUTING
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

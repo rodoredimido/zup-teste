@@ -2,208 +2,28 @@
     <div class="table-cand extern-sw" style="border-radius: 32;">
         <table id="candidatos-tab" class="responsive-table ">
 
+
             <tbody>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
+                <tr *ngFor="let candidato of lixeiraList  | paginate: config" (mouseenter)="saveStateCand(candidato) ">
+                    <!-- <tr *ngFor="let candidato of candidatos | paginate: config "> -->
+                    <td style="padding-left: 20px; "><img (mouseenter)="saveStateCand(candidato) " [src]="candidato.picture.thumbnail " [routerLink]=" '/candidato' " class="imgRedonda " width="40px " [alt]="candidato.name.first "></td>
+                    <td> <button [routerLink]=" '/candidato' " class="btn btn-circle "> {{candidato.name.first | titlecase}} </button> </td>
+                    <td> {{candidato.email}} </td>
+                    <td> {{candidato.phone}} </td>
+                    <!-- <td> {{ candidato.location.city + '-' + candidato.location.state }} </td> -->
+                    <td> {{ candidato.location.city | titlecase }}-{{candidato.location.state | stateBrasil}}
+                    </td>
+                    <!-- <td><button class="btn btn-circle "><span class="oi" data-glyph="trash" title="trash" aria-hidden="true "></span> </button></td> -->
+                    <td> <button (click)="setToTodos(candidato)" class="btn btn-circle  text-table-icone"><span class="oi" data-glyph="list" title="list" aria-hidden="true "></span></button></td>
+                    <td><button (click)="setToAttend(candidato)" class="btn btn-circle  text-table-icone"><span class="oi" data-glyph="check" title="check" aria-hidden="true "></span> </button></td>
 
                 </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-                <tr>
-                    <td>Foto</td>
-                    <td>nome</td>
-                    <td>email@email.com</td>
-                    <td>telefone</td>
-                    <td>ubicação</td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-                    <td><span class="oi" data-glyph="trash" title="trash" aria-hidden="true"></span></td>
-
-                </tr>
-
-
             </tbody>
         </table>
+        <div class="pag-position">
+            <pagination-controls [id]=" 'trash' " [maxSize]="maxSize " [directionLinks]="directionLinks " [autoHide]="autoHide " [responsive]="responsive " [previousLabel]="labels.previousLabel " [nextLabel]="labels.nextLabel
+                            " [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel " [screenReaderPageLabel]="labels.screenReaderPageLabel " [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel " class="my-pagination" (pageChange)="pageChanged($event)"></pagination-controls>
+
+        </div>
     </div>
 </div>

@@ -12,14 +12,10 @@ const APP_ROUTES: Routes = [
     { path: 'todos', component: TodosComponent },
     { path: 'atendidos', component: AtendidosComponent },
     { path: 'lixeira', component: LixeiraComponent },
-    { path: 'candidato', component: CandidatoComponent },
+    // { path: 'lixeira', loadChildren: './components/lixeira/lixeira.module#LixeiraModule' },
+    // { path: 'candidato', component: CandidatoComponent },
+     { path: 'candidato', loadChildren: './components/candidato/candidato.module#CandidatoModule' },
     { path: '**', pathMatch:'full', redirectTo: 'todos'  },
-
-    //{ path: 'path/:routeParam', component: MyComponent },
-    //{ path: 'staticPath', component: ... },
-    //{ path: '**', component: ... },
-    //{ path: 'oldPath', redirectTo: '/staticPath' },
-    //{ path: ..., component: ..., data: { message: 'Custom' }
 ];
  
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);
