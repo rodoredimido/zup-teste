@@ -1,3 +1,64 @@
+
+# Inofrmação:
+Para usar o código fonte, é necessário instalar as dependências do projeto, isso é feito executando o comando `npm install` na pasta raiz do projeto como referência na raiz do arquivo` package.json`.
+
+Para compilar o mesmo e gerar uma versão de produção, basta executar o comando `ng build --aot --prod`, onde será criado na pasta`. / Dist / `. Estará disponível para colocar em porção.
+
+Para realizar testes unitários, basta executar o comando `ng test --watch = true --codeCoverage = true` onde` watch = true` significa que ele será executado e, se detectar uma alteração, ele irá gerar o relatório de teste novamente.
+
+Um servidor com nodeJS foi programado para poder executar o projeto em produção.
+
+a API usada foi `RANDOM USER GENERATOR`.
+
+Angular / CLI: V7.2.4
+NodeJS: .V11.4.0
+npm: V6.4.1.
+
+<a href=“http://exemplo.com/“>LINK DO PROJETO EM PRODUÇÂO</a>
+
+##informcion: 
+
+para oder usar el codigo fuente, es necesario instalar las dependencias  del projecto, se realiza ejecutando el comando `npm install` en la carpet raiz delprojecto como referencia en la rai esta el archivo `package.json`.
+
+para oder compilar el mismo y generar una version de produccion basta con ejecutar el comando  `ng build --aot --prod` , donde sera creado en la carpeta `./dist/`. estara disponivilizado para colocarlo en porduccion.
+
+ara realizar test Unitarios basta con ejecutar el comando `ng test --watch=true --codeCoverage=true` donde `watch=true`
+ significa que ejecutara y si detecta un cambio vuelve a generar el informe de testes.
+
+fue programado un servidor con nodeJS para poder ejecutar el proyecto en produccion.
+
+la api usad fue `RANDOM USER GENERATOR`.
+
+Angular/CLI: V7.2.4
+NodeJS: .V11.4.0
+npm: V6.4.1.
+
+<a href=“http://exemplo.com/“>LINK PROYECTO EN PRODUCCION</a>
+
+
+# Info:
+
+To use the source code, it is necessary to install the dependencies of the project, it is done by executing the `npm install` command in the root folder of the project as a reference in the root of the` package.json` file.
+
+To compile the same and generate a production version, just execute the `ng build --aot --prod` command, where it will be created in the`. / dist / `folder. It will be available to place in porduction.
+
+To perform unit tests, simply execute the command `ng test --watch = true --codeCoverage = true` where` watch = true`
+  means that it will execute and if it detects a change, it will generate the test report again.
+
+A server with nodeJS was programmed to be able to execute the project in production.
+
+the api used was `RANDOM USER GENERATOR`.
+
+Angular / CLI: V7.2.4
+NodeJS: .V11.4.0
+npm: V6.4.1.
+
+<a href=“http://exemplo.com/“>LINK HEROKU PRODUCTION</a>
+
+
+
+
+
 # GerenciarCandidatos
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
