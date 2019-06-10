@@ -24,7 +24,7 @@ export class LixeiraComponent implements OnInit {
   name$: Observable<string>;
 
   config: any = {
-    id: 'info',
+    id: 'trash',
     itemsPerPage: 5,
     currentPage: 1,
     totalItems: 0

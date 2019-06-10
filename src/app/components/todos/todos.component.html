@@ -3,7 +3,7 @@
         <table id="candidatos-tab" class="responsive-table">
 
 
-            <tbody>
+            <tbody *ngIf="candidatos.length > 0">
                 <tr *ngFor="let candidato of candidatos  | paginate: config" (mouseenter)="saveStateCand(candidato) ">
                     <!-- <tr *ngFor="let candidato of candidatos | paginate: config "> -->
                     <td style="padding-left: 20px; "><img (mouseenter)="saveStateCand(candidato) " [src]="candidato.picture.thumbnail " [routerLink]=" '/candidato' " class="imgRedonda " width="40px " [alt]="candidato.name.first "></td>

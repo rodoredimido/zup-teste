@@ -1,5 +1,5 @@
 <div class="container interna-sw">
-    <div class="table-cand extern-sw" style="border-radius: 32;">
+    <div *ngIf="lixeiraList.length > 0" class="table-cand extern-sw" style="border-radius: 32;">
         <table id="candidatos-tab" class="responsive-table ">
 
 
@@ -23,8 +23,8 @@
                 <tr>
                     <td colspan="8">
                         <div class="pag-position">
-                            <pagination-controls [id]=" 'info' " [maxSize]="maxSize " [directionLinks]="directionLinks " [autoHide]="autoHide " [responsive]="responsive " [previousLabel]="labels.previousLabel " [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel "
-                                [screenReaderPageLabel]="labels.screenReaderPageLabel " [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel " class="my-pagination" (pageChange)="pageChanged($event) "></pagination-controls>
+                            <pagination-controls [id]=" 'trash' " [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide" [responsive]="responsive " [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel "
+                                [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" class="my-pagination" (pageChange)="pageChanged($event) "></pagination-controls>
 
                         </div>
 
